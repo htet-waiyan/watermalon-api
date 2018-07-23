@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 
-export const ReceiptSchema = new mongoose.Schema({
+export const RecipeSchema = new mongoose.Schema({
     name: String,
     description: { type: String, maxlength: 150 },
     kitchenwares: [String],
