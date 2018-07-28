@@ -10,4 +10,5 @@ export const RecipeSchema = new mongoose.Schema({
     dateAdded: Date,
     shoppingList: { type: mongoose.Schema.Types.ObjectId , ref: 'ShoppingList' },
     photos: [String],
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 });

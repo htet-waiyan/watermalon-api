@@ -18,6 +18,7 @@ export interface IRecipePojo {
     kitchenwares: Array<string>;
     ingredients: Array<string>;
     directions: Array<string>;
+    createdBy: mongoose.Types.ObjectId;
     whenToTry?: Date;
     dateAdded?: Date;
     shoppingList?: mongoose.Types.ObjectId;

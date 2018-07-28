@@ -18,14 +18,20 @@ export const createLogger = (app) => {
         ],
     });
 
+    if(process.env.NODE_ENV === 'dev') {
+        logger.add(new winston.transports.Console({
+            format: winston.format.simple()
+        }));
+    }
+
     global.logger = logger;
 }
 
 export const createAPIDocument = (app) => {
-    const apiDocOption = new DocumentBuilder();
-    apiDocOption
+    const apiDocOption = new DocumentBuilder()
       .setTitle('Recipe API')
       .setDescription('All know Recipe API')
+      .addBearerAuth('Authorization','header')
       .build();
     
     const document = SwaggerModule.createDocument(app,apiDocOption);
