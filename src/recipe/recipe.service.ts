@@ -56,4 +56,20 @@ export class RecipeService {
 
         return foundRecipes;
     }
+
+    public async findbyId(id: string): Promise<RecipeModel[]> {
+        logger.info('Finding recipes for ' + id);
+
+        const foundRecipes: IRecipe[] = await this.recipeModel.find(
+            {id},
+        );
+
+        return foundRecipes;
+    }
+
+    public async deleteById(recipeId: string) {
+        logger.info(`Finding recipe ${recipeId}`);
+
+        return await this.recipeModel.findByIdAndDelete({_id: recipeId});
+    }
 }
